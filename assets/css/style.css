@@ -1,0 +1,18 @@
+html, body, .container-fluid, .content-row {
+    height: 100%;   
+}
+
+.card {
+    background-color:paleturquoise;
+}
+
+/* .hide { */
+    /* display: none; */
+/* } */
+
+#currentDay {
+    display:block;
+    text-align-last: right;   
+
+}
+
