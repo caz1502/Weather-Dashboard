@@ -9,6 +9,11 @@ html, body, .container-fluid, .content-row {
     background-color: #cce5ff;
 }
 
+.hide {
+  display: none;
+}
+
+
 /* background changes depending of time day or night */
 .day {
     background-color:#f9f9f9;
