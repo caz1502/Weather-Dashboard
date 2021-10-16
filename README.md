@@ -1,6 +1,6 @@
 ## Weather Dashboard
 
-Live Application Link 👀 **https://ENTER HERE**
+Live Application Link 👀 **https://caz1502.github.io/Weather-Dashboard/**
 
 ## Your Task
 
@@ -27,7 +27,7 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city  
 
 ## Website Image
-![Weather Dashboard](./assets/images/)
+![Weather Dashboard](./assets/images/weather.JPG)
 
 ## Authors, Acknowledgement, & Resources 🤝
 Teaching Crew at UniSA Coding Bootcamp 🎉
