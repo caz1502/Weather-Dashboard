@@ -19,3 +19,7 @@ html, body, .container-fluid, .content-row {
     background-color:#F9F1F1;
   }
  
+  #uvHighlight {
+    background-color: green;
+    color: yellow;
+  }

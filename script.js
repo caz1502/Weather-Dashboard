@@ -24,8 +24,6 @@ var APIkey = "5607e4212a787842dbe27c8181889e83";
 var currentDate = moment().format('dddd Do MMMM, h:mm: a');
 $("#current-date").text(currentDate);
 
-
-
 // Backround colour depending on time of day
 function change_background() {
     var d = new Date();
@@ -39,7 +37,6 @@ function change_background() {
     //   console.log("test");
 }
 change_background();
-
 
 // Check if search history exists when page loads
 initalizeHistory();
@@ -111,7 +108,7 @@ function currentConditionsRequest(searchValue) {
         currentTemp.text(response.main.temp);
         currentTemp.append("&deg;C");
         currentHumidity.text(response.main.humidity + "%");
-        currentWindSpeed.text(response.wind.speed + "km");
+        currentWindSpeed.text(response.wind.speed + "km/h");
 
         var lat = response.coord.lat;
         var lon = response.coord.lon;
@@ -124,11 +121,24 @@ function currentConditionsRequest(searchValue) {
             method: "GET"
         }).then(function (response) {
             // console.log("UV call: ")
-            // console.log(response);
+            // console.log(response);  
+            var uvNumber = (response.value)
+            console.log(uvNumber)
+            // this changes the colour of the text based on uv rating
+            if (uvNumber < 2) {
+                console.log("ok");
+                document.getElementById("uv-index").style.color = "#00FF00"   
+            } else if (uvNumber == 3, 4, 5) {
+            document.getElementById("uv-index").style.color = "#FFA500";
+            } else if (uvNumber == 6, 7) {
+                document.getElementById("uv-index").style.color = "#FF0000";
+            }
+            
             UVindex.text(response.value);
+
         });
 
-        var countryCode = response.sys.country;
+
         var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?&units=metric&appid=" + APIkey + "&lat=" + lat + "&lon=" + lon;
 
         // AJAX call for 5-day forecast
@@ -141,7 +151,7 @@ function currentConditionsRequest(searchValue) {
             for (var i = 1; i < response.list.length; i += 8) {
 
                 var forecastDateString = moment(response.list[i].dt_txt).format('dddd Do');
-                console.log(forecastDateString);
+                // console.log(forecastDateString);
 
                 var forecastCol = $("<div class='col-12 col-md-6 col-lg forecast-day mb-3'>");
                 var forecastCard = $("<div class='card'>");
